@@ -1,0 +1,18 @@
+{
+  "name": "color-extractor-figma-plugin",
+  "version": "1.0.0",
+  "description": "Extracts colors from the target repository.",
+  "main": "code.js",
+  "scripts": {
+    "build": "esbuild code.ts --outfile=code.js",
+    "watch": "npm run build -- --watch"
+  },
+  "author": "j1ngzoue",
+  "license": "MIT",
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.57.1",
+    "@types/node": "^18.11.12",
+    "esbuild": "^0.16.2",
+    "typescript": "^4.9.4"
+  }
+}

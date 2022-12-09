@@ -1,0 +1,44 @@
+<div>
+  <p>
+    Owner:
+    <input
+      id="owner"
+      placeholder="username or organization name"
+      style="width: 200px"
+    />
+  </p>
+  <p>
+    Repo:
+    <input id="repo" placeholder="repository name" style="width: 200px" />
+  </p>
+  <p>Branch: <input id="branch" value="master" style="width: 200px" /></p>
+  <button id="btnExtract">Extract</button>
+  <button id="btnCancel">Cancel</button>
+</div>
+<script>
+  const btnExtract = document.getElementById("btnExtract");
+  window.addEventListener("message", (event) => {
+    btnExtract.removeAttribute("disabled");
+  });
+  btnExtract.onclick = () => {
+    btnExtract.setAttribute("disabled", true);
+    const textOwner = document.getElementById("owner");
+    const textRepo = document.getElementById("repo");
+    const textBranch = document.getElementById("branch");
+    parent.postMessage(
+      {
+        pluginMessage: {
+          type: "extractor",
+          owner: textOwner.value,
+          repo: textRepo.value,
+          branch: textBranch.value,
+        },
+      },
+      "*"
+    );
+  };
+
+  document.getElementById("btnCancel").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "cancel" } }, "*");
+  };
+</script>

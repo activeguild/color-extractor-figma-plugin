@@ -1,0 +1,8 @@
+{
+  "name": "color-extractor",
+  "id": "1182347596292307372",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"],
+  "ui": "ui.html"
+}
